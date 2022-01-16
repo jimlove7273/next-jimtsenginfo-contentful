@@ -23,6 +23,7 @@ const Blog = ({blog}) => {
 						{/* {JSON.stringify(blog)} */}
 
 						<div className="blogtop">
+						<div className="image-block">
 						<Image
 								src={'https:' + blog.fields.imageUrl.fields.file.url}
 								alt={blog.fields.title}
@@ -31,6 +32,7 @@ const Blog = ({blog}) => {
 								// width={blog.fields.imageUrl.fields.file.details.image.width}
 								// height={blog.fields.imageUrl.fields.file.details.image.height}
 							/>
+							</div>
 							<div className="blogtitle">{blog.fields.title}</div>
 						</div>
 						<div className="blogmeta">

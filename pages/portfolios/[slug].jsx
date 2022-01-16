@@ -22,14 +22,16 @@ const Portfolios = ({portfolio}) => {
 
 						<div className="pgheading">{portfolio.fields.title}</div>
 						<div className="grid grid-2col grid-gap30">
-						<Image
-								src={'https:' + portfolio.fields.imageUrl.fields.file.url}
-								alt={portfolio.fields.title}
-								width={500}
-								height={269}
-								// width={portfolio.fields.imageUrl.fields.file.details.image.width}
-								// height={portfolio.fields.imageUrl.fields.file.details.image.height}
-							/>
+							<div className="image-block">
+								<Image
+										src={'https:' + portfolio.fields.imageUrl.fields.file.url}
+										alt={portfolio.fields.title}
+										width={500}
+										height={369}
+										// width={portfolio.fields.imageUrl.fields.file.details.image.width}
+										// height={portfolio.fields.imageUrl.fields.file.details.image.height}
+									/>
+							</div>
 						<div className="content">
 								{documentToReactComponents(portfolio.fields.content)}<br /><br />
 								<b>URL:</b><br />{portfolio.fields.webUrl}<br /><br />
