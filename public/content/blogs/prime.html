@@ -1,0 +1,17 @@
+<div class="entry-content clr" itemprop="text">
+	<p>In this challenge, you are to list a set of <b>prime numbers</b> from 2 to x (where x can be any number). I have looked at a number of examples out there, most people use two loops (nested) to determine whether a number is divisible by any number within 1 to itself. So if you are to list all prime numbers up to 100. At 50, it checks to see if it can divide 50 by any number between 1-50. Same goes to 51, 52, 53, etc, until 100. It sounds logical but I really don’t like nested loop, and I avoid it at all cost. From my old math class, the first set of prime numbers are: 2, 3, 5, 7. So what if I print those numbers first, then I check if the next set of numbers are divisible into any of these numbers. You use these four numbers as your base. For example, 8 can be divided evenly by 2 and 4 so it’s not a prime, 9 can be divided evenly by 3 so it’s not a prime, 10 can be divided evenly by 2 and 5 so it’s not a prime, but 11 cannot be divided evenly by any of these four numbers so it’s a prime number. The logic (list) goes on and on. So to list ALL prime numbers up to 100, you can use the following code snippet:</p>
+<p><!-- HTML generated using hilite.me --></p>
+<div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%"><span style="color: #009999">&lt;?php</span>
+<span style="color: #003333">$out</span> <span style="color: #555555">=</span> <span style="color: #CC3300">"2,3,5,7"</span>;
+<span style="color: #006699; font-weight: bold">echo</span> <span style="color: #003333">$out</span>;
+<span style="color: #006699; font-weight: bold">for</span> (<span style="color: #003333">$x</span><span style="color: #555555">=</span><span style="color: #FF6600">8</span>; <span style="color: #003333">$x</span><span style="color: #555555">&lt;=</span><span style="color: #FF6600">100</span>; <span style="color: #003333">$x</span><span style="color: #555555">++</span>) {
+    <span style="color: #006699; font-weight: bold">if</span> ( (<span style="color: #003333">$x</span> <span style="color: #555555">%</span> <span style="color: #FF6600">2</span> <span style="color: #555555">!=</span> <span style="color: #FF6600">0</span>) <span style="color: #555555">&amp;&amp;</span> (<span style="color: #003333">$x</span> <span style="color: #555555">%</span> <span style="color: #FF6600">2</span> <span style="color: #555555">!=</span> <span style="color: #FF6600">0</span>) <span style="color: #555555">&amp;&amp;</span> (<span style="color: #003333">$x</span> <span style="color: #555555">%</span> <span style="color: #FF6600">2</span> <span style="color: #555555">!=</span> <span style="color: #FF6600">0</span>) <span style="color: #555555">&amp;&amp;</span> (<span style="color: #003333">$x</span> <span style="color: #555555">%</span> <span style="color: #FF6600">2</span> <span style="color: #555555">!=</span> <span style="color: #FF6600">0</span>) )
+    <span style="color: #006699; font-weight: bold">echo</span> <span style="color: #CC3300">","</span><span style="color: #555555">.</span><span style="color: #003333">$x</span>;
+}
+<span style="color: #009999">?&gt;</span>
+</pre>
+</div>
+<p>&nbsp;</p>
+<p>After running this script, you will get the following numbers printed: 2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97</p>
+</div>

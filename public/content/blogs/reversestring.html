@@ -1,0 +1,30 @@
+<div class="entry-content clr" itemprop="text">
+	<p>Sometimes you want to reverse a string, say from “Hello” to “olleH” (without the quotes).&nbsp; Just how do you do it?&nbsp; It can be done easily with JavaScript, and I will show you two ways.</p>
+<p><b>Method 1:</b></p>
+<p>This method uses the more traditional method.&nbsp; It determines the length of the string (input.length) then loops to add each character found in the beginning of the output string, hence creating a reverse effect.</p>
+<p><!-- HTML generated using hilite.me --></p>
+<div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%"><span style="color: #006699; font-weight: bold">var</span> input <span style="color: #555555">=</span> <span style="color: #CC3300">"hello"</span>;
+<span style="color: #006699; font-weight: bold">var</span> out <span style="color: #555555">=</span> <span style="color: #CC3300">""</span>;
+
+<span style="color: #006699; font-weight: bold">for</span> (<span style="color: #006699; font-weight: bold">var</span> i<span style="color: #555555">=</span><span style="color: #FF6600">0</span>; i <span style="color: #555555">&lt;</span> input.length; i<span style="color: #555555">++</span>) {
+out <span style="color: #555555">=</span> input.charAt(i) <span style="color: #555555">+</span> out;
+}
+<span style="color: #336666">document</span>.write( out );
+</pre>
+</div>
+<p>&nbsp;</p>
+<p><b>Method 2:</b></p>
+<p>This method uses the built-in function in JavaScript, obviously it <b>splits</b> the input string (comma separated), use the <b>reverse</b> function to reverse the order, and <b>join</b> them together (dropping the commas).</p>
+<p><!-- HTML generated using hilite.me --></p>
+<div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%"><span style="color: #006699; font-weight: bold">var</span> input <span style="color: #555555">=</span> <span style="color: #CC3300">"hello"</span>;
+<span style="color: #006699; font-weight: bold">var</span> out <span style="color: #555555">=</span> <span style="color: #CC3300">""</span>;
+
+<span style="color: #336666">document</span>.write( input.split(<span style="color: #CC3300">""</span>).reverse().join(<span style="color: #CC3300">""</span>) );
+</pre>
+</div>
+<p>&nbsp;</p>
+<p>Either method obviously works fine, I personally prefer the second method since it uses JavaScript’s built-in function instead of using a loop.&nbsp; We all know having a loop (of any repetitions) costs computer memory resources and I try to avoid it as much as I can.</p>
+<p></p>
+</div>

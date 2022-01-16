@@ -1,16 +1,461 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400&family=Dosis:wght@300;400;500&family=Karla:wght@300;400;600&family=Open+Sans:wght@300;400;600&family=Roboto:wght@300;400;700&display=swap');
+
+/* ----------------------------------------------------------------
+|
+| globals.css - define global CSS
+|
+---------------------------------------------------------------- */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: Roboto; }
+
+html, body { height: 100vh; }
+.height100p { height: 100%; }
+
+.container { width: 100%; padding: 10px; max-width: 1100px; margin: 0 auto; position: relative; }
+.container-sml { width: 100%; padding: 5px; max-width: 1100px; margin: 0 auto; }
+.admincontainer { width: 100%; padding: 10px; }
+
+a { text-decoration: none; }
+
+html, body { height: 100vh; }
+
+.sectiontitle {
+  font-size: 32px;
+  color: #54595f;
+  padding: 20px;
+  font-weight: 500;
+  text-align: center;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+section#myportfolios, section#myblogs {
+  border-top: 1px solid #424242;
 }
 
-* {
-  box-sizing: border-box;
+.pgcontent {
+  background-color: #fff;
+  min-height: 500px;
+  margin-bottom: 50px;
+  position: relative;
 }
+
+section#myportfolios, section#myblogs { padding: 20px 0 50px 0; }
+
+.pgheading { font-size: 30px; padding: 10px 0 20px 0; }
+
+.text-right { text-align: right;}
+
+.bodycover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.bodycover.on {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.bodycover.off {
+  z-index: 1;
+  width: 0%;
+  height: 0%;
+  background: none;
+}
+
+/* ----------------------------------------------------------------
+| Home Page Stuff
+---------------------------------------------------------------- */
+.gridcard { border: 1px solid #d8d7d7; overflow: hidden; position: relative; }
+.gridtitle { font-family: sans-serif; font-weight: 600; font-size: 14px; padding: 20px 10px; color: #54595f; }
+.gridcard img, #myblogs .grid-4columns img, #myportfolios .grid-4columns img { width: 100%; transition: all 0.5s ease; }
+.gridcard img:hover, #myblogs .grid-4columns img:hover, #myportfolios .grid-4columns img:hover {
+  transform: scale(1.1);
+}
+.gridbottomtitle {
+  font-size: 13px;
+  padding: 7px 5px 7px 7px;
+  background-color: rgba(38, 89, 140, 0.85);
+  color: #fff;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+/* -------- Home Block ---------- */
+#homeblock { padding: 20px 0 50px 0; }
+#homeblock > * { text-align: center; }
+#homeblock .homeblockheading {
+  font-family: Roboto;
+  color: #418e60;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 0;
+}
+#homeblock p {
+  font-family: Roboto;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+
+/* ----------------------------------------------------------------
+| About Page Stuff
+---------------------------------------------------------------- */
+#aboutuspage p { font-family: Roboto; margin: 0 0 20px; line-height: 31px; color: #444; }
+#aboutuspage .mypic { width: 300px; margin: 0 14px 10px 0; }
+
+
+/* ----------------------------------------------------------------
+| Contact Us Stuff
+---------------------------------------------------------------- */
+#loginpage .formarea, #contactpage .formarea { width: 350px; }
+#blogeditpage .formarea { width: 100%; max-width: 500px; }
+#loginpage label, #contactpage label, #blogeditpage label { color: #666666; font-size: 12px; }
+#loginpage input, #contactpage input, #blogeditpage input, #blogeditpage select { width: 100%; padding: 6px; margin-bottom: 12px; border: 1px solid #ccc; }
+#contactpage textarea, #blogeditpage textarea { width: 100%; height: 200px; border: 1px solid #ccc; }
+#loginpage button, #contactpage button, #blogeditpage button { background-color: #369; color: #fff; font-size: 14px; padding: 8px 15px; border: 0; }
+
+
+
+/* ----------------------------------------------------------------
+| Header Nav
+---------------------------------------------------------------- */
+#nav  { background-color: #234466; color: #fff; font-weight: 500; }
+#homenav  { position: absolute; top: 0; left: 0; width: 100%; z-index: 1; border-bottom: 1px solid #ccc; color: #fff; font-weight: 500; }
+#homenav .flex, #nav .flex {  display: flex; justify-content: space-between; align-items: center; }
+#homenav .logo, #nav .logo { font-size: 26px; }
+#homenav .navlinks, #nav .navlinks { font-family: 'Open Sans'; transition: all 0.35s ease;  }
+#homenav .navlinks ul, #nav .navlinks ul { margin: 0; display: flex; }
+#homenav .navlinks li, #nav .navlinks li { list-style-type: none; margin-left: 10px; }
+#homenav .navlinks a, #nav .navlinks a { color: #fff; display: block; transition: all 0.25s ease; }
+
+@media screen and ( min-width: 651px ) {
+  .closenav { display: none; cursor: pointer; }
+  #homenav .navlinks, #nav .navlinks { left: -200px; }
+  #homenav .navlinks a, #nav .navlinks a { padding: 10px; }
+  #homenav .opennav, #nav .opennav { display: none; }
+  #homenav .navlinks a:hover, #homenav .navlinks a.active, #nav .navlinks a:hover, #nav .navlinks a.active { background-color:rgba(60, 139, 169, 0.65); }
+}
+
+@media screen and ( max-width: 650px ) {
+
+  #homenav .navlinks a, #nav .navlinks a { padding: 12px 20px; }
+  #homenav .opennav, #nav .opennav { display: block; cursor: pointer; z-index: 0; }
+  #homenav .navlinks.open, #nav .navlinks.open { left: 0px; z-index: 1; }
+  #homenav .navlinks a:hover, #homenav .navlinks a.active, #nav .navlinks a:hover, #nav .navlinks a.active { background-color:rgba(200, 228, 255, 0.65); }
+
+  #homenav .navlinks, #nav .navlinks {
+    position: absolute; top: 0; left: -300px;
+  }
+
+  #homenav .navlinks ul, #nav .navlinks ul {
+    width: 300px;
+    height: 100vh;
+    display: block;
+    background-color: #fff;
+    border-right: 1px solid #ccc;
+    z-index: 10;
+  }
+
+  #homenav .navlinks li, #nav .navlinks li {
+    border-bottom: 1px solid rgba(0,0,0,0.035);
+    margin: 0;
+  }
+
+  #homenav .navlinks .closenav, #nav .navlinks .closenav {
+    background-color: #f8f8f8;
+    font-weight: 600;
+    padding: 20px;
+    color: #333;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  #homenav .navlinks a, #nav .navlinks a {
+    font-size: 14px;
+    line-height: 27px;
+    color: #555;
+  }
+
+  body.nav-open {
+    position: fixed;
+    z-index: -1;
+  }
+
+  body.nav-open::after {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: rgba(0,0,0,.5);
+  }
+
+}
+
+/* ----------------------------------------------------------------
+| Blog Single Page
+---------------------------------------------------------------- */
+#blogsinglepage .blogtop { display: block; overflow: hidden; padding-bottom: 5px; border-bottom: 1px solid #ccc; }
+#blogsinglepage .blogtop .blogtitle { font-size: 34px; }
+#blogsinglepage .blogtop img { margin-right: 20px; }
+#blogsinglepage .blogmeta { color: #777; font-size: 12px; width: 100%; max-width: 300px; display: flex; margin: 10px 0 20px 0;  }
+#blogsinglepage .blogmeta > * { margin-right: 10px; }
+#portfoliosinglepage .content, #blogsinglepage .content { color: #777; font-size: 14px; line-height: 2; margin-top: 30px; }
+#blogsinglepage p { margin: 12px 0; }
+
+
+/* ----------------------------------------------------------------
+| Portfolio Single Page
+---------------------------------------------------------------- */
+#portfoliosinglepage .content { line-height: 1.5; margin-top: 0; }
+#portfoliosinglepage .deprecated {
+  background-color: #ccc;
+  color: #fff;
+  margin: 30px 0;
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 30px;
+}
+#portfoliosinglepage .jumpbutton {
+  background-color: #369;
+  margin: 30px 0;
+  display: inline-block;
+  padding: 12px 20px;
+  color: #fff;
+  border-radius: 30px;
+}
+
+/* ----------------------------------------------------------------
+| Footer
+---------------------------------------------------------------- */
+/* #footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+} */
+
+#footer #footer-navs {
+  background-color: #222;
+  color: #929292;
+  font-size: 13px;
+  line-height: 1.7;
+  padding: 20px 0;
+}
+
+#footer #footer-navs .grid {
+  grid-template-columns: repeat( auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px;
+}
+
+#footer #footer-navs .grid > * {
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+#footer #footer-navs .footerheading {
+  border-left: 4px solid #13aff0;
+  color: #fff;
+  padding-left: 10px;
+  margin-bottom: 15px;
+}
+
+#footer #footer-navs a {
+  color: #929292;
+}
+
+#footer #copyrightline {
+  font-size: 12px;
+  text-align: center;
+  padding: 15px 0;
+  background-color: #1b1b1b;
+  color: #929292;
+}
+
+
+/* ----------------------------------------------------------------
+| Fontawesome
+---------------------------------------------------------------- */
+.svg-inline--fa {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #6EC1E4;
+}
+
+/* ----------------------------------------------------------------
+| Flex Box
+---------------------------------------------------------------- */
+.flex { display: flex; }
+
+
+/* ----------------------------------------------------------------
+| Grid Box
+---------------------------------------------------------------- */
+.grid { display: grid; }
+.grid-2columns {
+  display: grid;
+  grid-template-columns: repeat( auto-fill, minmax(300px, 1fr));
+}
+.grid-2col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-4columns {
+  display: grid;
+  grid-template-columns: repeat( auto-fill, minmax(220px, 1fr));
+}
+.grid-gap10 { grid-gap: 10px; }
+.grid-gap30 { grid-gap: 30px; }
+
+.grid .imgingrid {
+  max-width: 100%;
+}
+.grid .imgingrid img {
+  width: 100%;
+}
+
+
+
+/* ----------------------------------------------------------------
+| CSS Table
+---------------------------------------------------------------- */
+.table {
+  display: table;
+  width: 100%;
+  border: 1px solid #ccd0d4;
+}
+.table .table-row {
+  display: table-row;
+}
+
+.listcount {
+  margin: 30px 0 10px 0;
+  font-size: 13px;
+}
+
+.table .table-row .table-cell:first-child {
+  color: #0073aa;
+}
+
+.table .table-cell .listtitle {
+  font-weight: 600;
+}
+
+.table .table-cell .listaction {
+  font-size: 12px;
+  padding: 4px 0;
+}
+
+.table .table-row .table-header {
+  display: table-cell;
+  padding: 8px 10px;
+  border-bottom: 1px solid #ccd0d4;
+  font-family: Roboto;
+  font-size: 14px;
+  color: #0073aa;
+}
+
+.table .table-row .table-cell {
+  display: table-cell;
+  padding: 3px 10px;
+  font-size: 13px;
+  font-weight: 300;
+  font-family: 'Roboto';
+}
+.table .table-row:nth-child(even) {
+  background: #f9f9f9;
+}
+
+
+/* ----------------------------------------------------------------
+| Other Stuff
+---------------------------------------------------------------- */
+.addnewbutton {
+  color: #0071a1;
+  border: 1px solid #0071a1;
+  background: #f3f5f6;
+  padding: 4px 8px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 13px;
+  margin-left: 12px;
+  position: relative;
+  top: -3px;
+}
+
+
+/* ----------------------------------------------------------------
+| Hero Image
+---------------------------------------------------------------- */
+.heroimagerow {
+  position: relative;
+}
+
+.heroimagerow .heroimagerow_img {
+  position: absolute;
+  background: url(../public/images/home_herobg.jpg);
+  background-size: cover;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.heroimagerow .heroimagerow_img::after {
+  position: absolute;
+  content: ' ';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #3b4271;
+  opacity: 0.74;
+  transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+
+.heroimagerow .textblock {
+  position: absolute;
+  font-size: 30px;
+  color: #fff;
+}
+
+
+@media screen and ( max-width: 605px ) {
+
+  .heroimagerow {
+    padding: 100px 0;
+    width: 100%;
+    position: relative;
+  }
+
+  .heroimagerow .textblock {
+    font-size: 16px;
+    width: 100%;
+    padding-left: 30px;
+  }
+
+  .heroimagerow .heavy {
+    font-size: 30px;
+  }
+
+}
+
+@media screen and ( min-width: 606px ) {
+
+  .heroimagerow {
+    padding: 150px 100px 200px 100px;
+  }
+
+  .heroimagerow .heavy {
+    font-size: 60px;
+  }
+
+}
+
+
+

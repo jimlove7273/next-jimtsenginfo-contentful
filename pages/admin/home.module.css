@@ -1,0 +1,16 @@
+
+
+.toprow { background-color: #000; font-size: 15px; color: #fff; }
+.adminhome { height: 100%; }
+.adminhome .flex div:first-child { width: 120px; }
+.content { padding: 10px; width: 100%; min-height: 96vh; }
+
+.p { margin: 20px 0; }
+
+.profiledetails { margin: 30px 0; }
+
+.adminpgheading { color: #23282d; font-size: 23px; padding: 9px 0 4px 0; }
+
+.cursorpointer { cursor: pointer; }
+
+
