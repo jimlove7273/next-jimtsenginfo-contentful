@@ -28,7 +28,7 @@ const Blog = ({blog}) => {
 								src={'https:' + blog.fields.imageUrl.fields.file.url}
 								alt={blog.fields.title}
 								width={500}
-								height={269}
+								height={369}
 								// width={blog.fields.imageUrl.fields.file.details.image.width}
 								// height={blog.fields.imageUrl.fields.file.details.image.height}
 							/>
