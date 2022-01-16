@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { createClient } from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import Skeleton from '../../components/Skeleton'
 
 const client = createClient({
 	space: process.env.CONTENTFUL_SPACE_ID,
@@ -11,7 +12,9 @@ const client = createClient({
 
 const Portfolios = ({portfolio}) => {
 
-	console.log("portfolio", portfolio)
+	if ( !portfolio ) return <Skeleton />
+
+	const { title, imageUrl, content, webUrl, siteOwner, completed, technology, deprecated } = portfolio.fields
 	
 	return (
 		<Layout>
@@ -20,34 +23,32 @@ const Portfolios = ({portfolio}) => {
 				<div className="pgcontent">
 					<div className="container">
 
-						<div className="pgheading">{portfolio.fields.title}</div>
+						<div className="pgheading">{title}</div>
 						<div className="grid grid-2col grid-gap30">
 							<div className="image-block">
 								<Image
-										src={'https:' + portfolio.fields.imageUrl.fields.file.url}
-										alt={portfolio.fields.title}
+										src={'https:' + imageUrl.fields.file.url}
+										alt={title}
 										width={500}
 										height={369}
-										// width={portfolio.fields.imageUrl.fields.file.details.image.width}
-										// height={portfolio.fields.imageUrl.fields.file.details.image.height}
 									/>
 							</div>
 						<div className="content">
-								{documentToReactComponents(portfolio.fields.content)}<br /><br />
-								<b>URL:</b><br />{portfolio.fields.webUrl}<br /><br />
-								<b>Owner:</b><br />{portfolio.fields.siteOwner}<br /><br />
-								<b>Completed:</b><br />{portfolio.fields.completed}<br /><br />
+								{documentToReactComponents(content)}<br /><br />
+								<b>URL:</b><br />{webUrl}<br /><br />
+								<b>Owner:</b><br />{siteOwner}<br /><br />
+								<b>Completed:</b><br />{completed}<br /><br />
 								<b>Technology:</b><br />
 									{
-										portfolio.fields.technology.map(tech => (
+										technology.map(tech => (
 											<span key="tech">{tech}, </span>
 										))
 									}
 								<br /><br />
 								{
-									portfolio.fields.deprecated
+									deprecated
 										? <div className="deprecated">Deprecated</div>
-										: <Link href={portfolio.fields.webUrl}>
+										: <Link href={webUrl}>
 												<a className="jumpbutton" target="_blank">Go To This Site</a>
 											</Link>
 								}
@@ -72,10 +73,20 @@ export const getStaticProps = async ({params}) => {
 		'fields.slug': params.slug
 	})
 
+	if ( !items.length ) {
+		return {
+			redirect: {
+				destination: '/',
+				permanent: false
+			}
+		}
+	}
+
 	return {
 		props: {
 			portfolio: items[0]
-		}
+		},
+		revalidate: 6
 	}
 
 }
@@ -92,7 +103,7 @@ export const getStaticPaths = async () => {
 
 	return {
 		paths,
-		fallback: false
+		fallback: true
 	}
 
 }

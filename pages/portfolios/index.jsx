@@ -14,7 +14,7 @@ export default function indexBlogs({ portfolios }) {
             {portfolios.map((portfolio) => (
               <Link href={`/portfolios/${portfolio.fields.slug}`} key={portfolio.ID}>
                 <a>
-                  <div className="gridcard" key={portfolio.ID}>
+                  <div className="gridcard" key={portfolio.sys.id}>
                   <Image
                     src={'https:' + portfolio.fields.imageUrl.fields.file.url}
                     alt={portfolio.fields.title}

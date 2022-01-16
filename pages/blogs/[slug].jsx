@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { createClient } from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import Skeleton from '../../components/Skeleton'
 
 const client = createClient({
 	space: process.env.CONTENTFUL_SPACE_ID,
@@ -11,7 +12,9 @@ const client = createClient({
 
 const Blog = ({blog}) => {
 
-	console.log("blog", blog)
+	if ( !blog ) return <Skeleton />
+
+	const { title, documentDate, category, content, imageUrl } = blog.fields
 	
 	return (
 		<Layout>
@@ -20,27 +23,23 @@ const Blog = ({blog}) => {
 				<div className="pgcontent">
 					<div className="container">
 
-						{/* {JSON.stringify(blog)} */}
-
 						<div className="blogtop">
 						<div className="image-block">
 						<Image
-								src={'https:' + blog.fields.imageUrl.fields.file.url}
-								alt={blog.fields.title}
+								src={'https:' + imageUrl.fields.file.url}
+								alt={title}
 								width={500}
 								height={369}
-								// width={blog.fields.imageUrl.fields.file.details.image.width}
-								// height={blog.fields.imageUrl.fields.file.details.image.height}
 							/>
 							</div>
-							<div className="blogtitle">{blog.fields.title}</div>
+							<div className="blogtitle">{title}</div>
 						</div>
 						<div className="blogmeta">
-							<div>Date: {blog.fields.documentDate}</div>
-							<div>Category: {blog.fields.category}</div>
+							<div>Date: {documentDate}</div>
+							<div>Category: {category}</div>
 						</div>
 						<div className="content">
-						{documentToReactComponents(blog.fields.content)}
+						{documentToReactComponents(content)}
 						</div>
 
 					</div>
@@ -61,10 +60,20 @@ export const getStaticProps = async ({params}) => {
 		'fields.slug': params.slug
 	})
 
+	if ( !items.length ) {
+		return {
+			redirect: {
+				destination: '/',
+				permanent: false
+			}
+		}
+	}
+
 	return {
 		props: {
 			blog: items[0]
-		}
+		},
+		revalidate: 6
 	}
 
 }
@@ -81,7 +90,7 @@ export const getStaticPaths = async () => {
 
 	return {
 		paths,
-		fallback: false
+		fallback: true
 	}
 
 }

@@ -7,9 +7,6 @@ import { FaCloud, FaUser, FaCode, FaBolt } from 'react-icons/fa'
 import Layout from './layout'
 
 export default function Home({ blogs, portfolios }) {
-
-  console.log("blogs", blogs)
-  console.log("portfolios", portfolios)
   
   return (
     <Layout>
@@ -121,7 +118,8 @@ export async function getStaticProps() {
     props: {
       blogs: resblogs.items,
       portfolios: resportfolios.items
-    }
+    },
+		revalidate: 6
   }
   
 }
