@@ -4,7 +4,7 @@ import { createClient } from 'contentful'
 import Image from 'next/image'
 import { FaCloud, FaUser, FaCode, FaBolt } from 'react-icons/fa'
 
-import Layout from './layout'
+import Layout from '../components/layout'
 
 export default function Home({ blogs, portfolios }) {
   

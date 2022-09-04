@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Layout from './layout'
+import Layout from '../components/layout'
 import Router from 'next/router'
 
 
@@ -11,7 +11,7 @@ const Login = () => {
 	const cklogin = (e) => {
 		e.preventDefault()
 
-		if ( username===process.env.PROTECTED_USER && password===process.env.PROTECTED_PASSWORD ) {
+		if ( username===process.env.NEXT_PUBLIC_PROTECTED_USER && password===process.env.NEXT_PUBLIC_PROTECTED_PASSWORD ) {
 			var date = new Date();
 			date.setTime(date.getTime()+(10*60*1000));	// first # denotes the # of minutes, 5=5 minutes
 			document.cookie = "log="+username+"; expires="+date.toGMTString()+"; path=/"

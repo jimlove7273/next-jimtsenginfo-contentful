@@ -1,4 +1,4 @@
-import Layout from "../layout"
+import Layout from '../../components/layout'
 import { createClient } from 'contentful'
 import Image from 'next/image'
 import Link from "next/link"

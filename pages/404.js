@@ -1,4 +1,4 @@
-import Layout from '../pages/layout'
+import Layout from '../components/layout'
 
 export default function Skeleton() {
 	return (

@@ -15,8 +15,7 @@ const Footer = () => {
 							<div className="footerheading">MY PRIMARY SKILLSET</div>
 							<div className="footertext">
 								✓ HTML(5)/CSS(3)<br />
-								✓ PHP/MySQL<br />
-								✓ JavaScript/JQuery<br />
+								✓ JavaScript<br />
 								✓ ReactJS/NextJS<br />
 								✓ WordPress Design/Development<br />
 							</div>

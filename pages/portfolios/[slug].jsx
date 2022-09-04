@@ -1,4 +1,4 @@
-import Layout from '../layout'
+import Layout from '../../components/layout'
 import Link from 'next/link'
 import Image from 'next/image'
 import { createClient } from 'contentful'
@@ -41,7 +41,7 @@ const Portfolios = ({portfolio}) => {
 								<b>Technology:</b><br />
 									{
 										technology.map(tech => (
-											<span key="tech">{tech}, </span>
+											<span key={tech}>{tech}, </span>
 										))
 									}
 								<br /><br />
