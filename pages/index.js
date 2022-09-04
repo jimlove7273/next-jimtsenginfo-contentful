@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { createClient } from 'contentful'
 import Image from 'next/image'
+import bg from '../public/images/home_herobg.jpg'
 import { FaCloud, FaUser, FaCode, FaBolt } from 'react-icons/fa'
 
 import Layout from '../components/layout'
@@ -14,7 +15,15 @@ export default function Home({ blogs, portfolios }) {
       <div className="pgcontent">
 
         <div className="heroimagerow">
-          <div className="heroimagerow_img">&nbsp;</div>
+          <div className="heroimagerow_img" style={{
+            position: 'absolute',
+            backgroundImage: `url(${bg.src})`,
+            width: '100%',
+            height: '100%',
+            backgroundSize: 'cover',
+            top: 0,
+            left: 0,
+          }}>&nbsp;</div>
           <div className="textblock">
           Coding? Designing? SEO Marketing?<br />
           <div className="heavy">I DO THEM ALL</div>

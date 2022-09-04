@@ -396,16 +396,6 @@ section#myportfolios, section#myblogs { padding: 20px 0 50px 0; }
   position: relative;
 }
 
-.heroimagerow .heroimagerow_img {
-  position: absolute;
-  background: url(../public/images/home_herobg.jpg);
-  background-size: cover;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
 .heroimagerow .heroimagerow_img::after {
   position: absolute;
   content: ' ';
