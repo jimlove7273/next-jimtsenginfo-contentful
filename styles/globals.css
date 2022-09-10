@@ -51,6 +51,7 @@ section#myportfolios, section#myblogs { padding: 20px 0 50px 0; }
 }
 
 .bodycover.on {
+  position: fixed;
   z-index: 1;
   width: 100%;
   height: 100%;

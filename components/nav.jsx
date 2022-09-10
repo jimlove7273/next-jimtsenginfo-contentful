@@ -16,7 +16,7 @@ const Nav = () => {
 
 	return (
 		<div id={curpath=="/" ? "homenav" : "nav"}>
-			<div className={`${opensidenav ? 'bodycover on' : 'bodycover off'}`}>&nbsp;</div>
+			<div className={`${opensidenav ? 'bodycover on' : 'bodycover off'}`} onClick={()=>{setOpensidenav(false)}}>&nbsp;</div>
 			<div className="container">
 				<div className="flex">
 					<div className="logo">Jim Tseng</div>
