@@ -95,11 +95,9 @@ export const getStaticProps = async ({params}) => {
 export const getStaticPaths = async () => {
 
 	const res = await client.getEntries({ content_type: 'jtiPortfolios'})
-	const paths = res.items.map(item => {
-		return {
+	const paths = res.items.map(item => ({
 			params: { slug: item.fields.slug }
-		}
-	})
+	}))
 
 	return {
 		paths,
