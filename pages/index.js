@@ -38,7 +38,7 @@ export default function Home({ blogs, portfolios }) {
             <div>
               <FaCloud className="svg-inline--fa" />
               <div className="homeblockheading">LATEST TECHNOLOGY</div>
-              <p>HTML5/CSS3, Responsive CSS Design, JavaScript, ReactJS, and NextJS​</p>
+              <p>HTML5/CSS3, Responsive CSS Design, JavaScript, ReactJS, and NextJS.​</p>
             </div>
             <div>
               <FaUser className="svg-inline--fa" />
