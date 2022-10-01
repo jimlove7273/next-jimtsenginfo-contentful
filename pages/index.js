@@ -38,12 +38,12 @@ export default function Home({ blogs, portfolios }) {
             <div>
               <FaCloud className="svg-inline--fa" />
               <div className="homeblockheading">LATEST TECHNOLOGY</div>
-              <p>HTML5/CSS3, Responsive CSS Design, JavaScript, JQuery, ReactJS, and WordPress​</p>
+              <p>HTML5/CSS3, Responsive CSS Design, JavaScript, ReactJS, and NextJS​</p>
             </div>
             <div>
               <FaUser className="svg-inline--fa" />
               <div className="homeblockheading">CUSTOMERS FIRST</div>
-              <p>I write applications that people CAN use without changing their way of running their business. I always put Customers First.</p>
+              <p>I write applications that people CAN use without changing their way of running their business. I put their needs first.</p>
             </div>
             <div>
               <FaCode className="svg-inline--fa" />
