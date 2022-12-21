@@ -1,4 +1,5 @@
 import Layout from "../components/layout";
+import Image from "next/image";
 
 const About = () => {
   return (
@@ -7,11 +8,13 @@ const About = () => {
         <div className="pgcontent">
           <div className="container">
             <div className="pgheading">About Me</div>
-            <img
+            <Image
               src="/jimtseng.jpg"
               className="mypic"
               align="left"
               alt="Jim Tseng"
+              width="300"
+              height="221"
             />
             <p>
               More than once in my life someone tells me, “Jim, you are not like
